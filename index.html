@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>nodePktAnalyzer</title>
+    <script src="https://use.fontawesome.com/5d8ad320fe.js"></script>
+    <link href="css/main.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    
+    <div class="app">
+
+      <div class="item block1">
+          <h1>Welcome to node Packet Analyzer</h1>
+          <!-- All of the Node.js APIs are available in this renderer process. -->
+          We are using Node.js <script>document.write(process.versions.node)</script>,
+          Chromium <script>document.write(process.versions.chrome)</script>,
+          and Electron <script>document.write(process.versions.electron)</script>,
+      </div>
+
+      <div class="item block2" id="re">
+      </div>
+
+      <div class="item block3">
+        <h1>Block 3</h1>
+      </div>
+
+      <div class="item block4">
+          <h1>Block 4</h1>
+      </div>
+      
+
+    </div>
+
+  </body>
+
+  <script>
+    require('./js/mainCompiled.js')
+  </script>
+</html>

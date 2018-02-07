@@ -1,0 +1,37 @@
+{
+  "name": "nodepktanalyzer",
+  "version": "0.0.1",
+  "description": "A visual network packaet anyliser using an ESP32 and node",
+  "main": "server.js",
+  "scripts": {
+    "start": "electron .",
+    "install": "electron-rebuild",
+    "lintall": "echo '=> linting all the JS' && jshint js/*.js",
+    "mincss": "echo '=> minify main.css' && cleancss css/main.css -o css/main.min.css",
+    "minjs": "echo '=> minify clientside js (main.js)' && uglifyjs js/main.js -o js/main.min.js",
+    "babel": "npx babel js/main.js --out-file js/mainCompiled.js --presets=env,react",
+    "prestart": "echo '=> First I must min you css and transpile you react js/jsx!!' && npm run mincss -s && npm run babel"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "nathanbuckley",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "clean-css-cli": "^4.1.10",
+    "electron": "^1.7.10",
+    "electron-rebuild": "^1.7.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "uglify-js": "^3.3.7"
+  },
+  "dependencies": {
+    "serialport": "^6.0.4"
+  }
+}
