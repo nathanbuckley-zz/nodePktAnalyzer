@@ -25,13 +25,13 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-css-cli": "^4.1.10",
-    "electron": "^1.7.10",
+    "electron": "^1.8.2",
     "electron-rebuild": "^1.7.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "uglify-js": "^3.3.7"
+    "uglify-js": "^3.3.9"
   },
   "dependencies": {
-    "serialport": "^6.0.4"
+    "serialport": "^6.1.0"
   }
 }
