@@ -18,7 +18,7 @@ build/Release
 node_modules/
 jspm_packages/
 
-# npm cache directory
+# rnpm cache directory
 .npm
 
 # eslint cache
