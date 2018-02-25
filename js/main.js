@@ -6,7 +6,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const os = require('os');
 
-function interfaceStringFormat(int){
+function interfaceStringFormat(interface){
 
 }
 

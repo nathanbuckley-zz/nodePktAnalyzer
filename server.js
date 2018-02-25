@@ -5,10 +5,15 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
-let mainWindow // Keep global reference of the window object, if you don't, the window will be closed automatically when the JavaScript object is garbage collected.
+let mainWindow // Global reference of the window object, if you don't, the window will be closed automatically when the JavaScript object is garbage collected.
 
 function createWindow () {
-  mainWindow = new BrowserWindow({width: 1200, height: 600, x: 0,y: 0}); // Create the browser window.
+  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
+  mainWindow = new BrowserWindow({
+    width: width / 4,
+    height: height, 
+    x: 0,
+    y: 0});
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -17,10 +22,8 @@ function createWindow () {
     slashes: true
   }));
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();   // Open the DevTools.
 
-  // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -29,21 +32,17 @@ function createWindow () {
   });
 };
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// Called when Electron has finished initialization
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
-// Quit when all windows are closed.
+// For OSX to quit all if windows are closed but not CMD + Q'ed
 app.on('window-all-closed', function () {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   app.quit();
 });
 
+// For OSX recreate window all windows closed
 app.on('activate', function () {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
     createWindow();
   }

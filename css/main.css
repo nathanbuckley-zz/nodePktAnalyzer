@@ -15,8 +15,8 @@ body {
 
 .app{
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-columns: 100%;
+  grid-template-rows: 25% 25% 25% 25%;
 }
 
 .block1{
@@ -25,16 +25,16 @@ body {
 }
 
 .block2{
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 1;
-}
-
-.block3{
   grid-column: 1 / span 1;
   grid-row: 2 / span 1;
 }
 
+.block3{
+  grid-column: 1 / span 1;
+  grid-row: 3 / span 1;
+}
+
 .block4{
-  grid-column: 2 / span 1;
-  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+  grid-row: 4 / span 1;
 }
