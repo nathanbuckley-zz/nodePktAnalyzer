@@ -8,7 +8,9 @@ const url = require('url');
 let mainWindow // Global reference of the window object, if you don't, the window will be closed automatically when the JavaScript object is garbage collected.
 
 function createWindow () {
+
   const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
+
   mainWindow = new BrowserWindow({
     width: width / 4,
     height: height, 
@@ -22,18 +24,12 @@ function createWindow () {
     slashes: true
   }));
 
-  mainWindow.webContents.openDevTools();   // Open the DevTools.
-
   mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     mainWindow = null
   });
 };
 
 // Called when Electron has finished initialization
-// Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
 // For OSX to quit all if windows are closed but not CMD + Q'ed

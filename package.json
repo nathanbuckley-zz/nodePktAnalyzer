@@ -6,11 +6,11 @@
   "scripts": {
     "start": "electron .",
     "install": "electron-rebuild",
-    "lintall": "echo '=> linting all the JS' && jshint js/*.js",
-    "mincss": "echo '=> minify main.css' && cleancss css/main.css -o css/main.min.css",
-    "minjs": "echo '=> minify clientside js (main.js)' && uglifyjs js/main.js -o js/main.min.js",
-    "babel": "npx babel js/main.js --out-file js/mainCompiled.js --presets=env,react",
-    "prestart": "echo '=> First I must min you css and transpile you react js/jsx!!' && npm run mincss -s && npm run babel"
+    "lintall": "echo '=> linting all the JS' && jshint assets/js/*.js",
+    "minmaincss": "echo '=> minify main.css' && cleancss assets/css/main.css -o assets/css/main.min.css",
+    "minformcss": "echo '=> Minify form css' && cleancss assets/css/pineForm.css -o assets/css/pineForm.min.css",
+    "babel": "npx babel assets/js/main.js --out-file assets/js/mainCompiled.js --presets=env,react",
+    "prestart": "echo '=> First I must min your css and transpile you react js/jsx!!' && npm run minmaincss && npm run minformcss && npm run babel"
   },
   "repository": {
     "type": "git",
