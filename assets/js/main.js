@@ -9,6 +9,7 @@ const url = require('url');
 const os = require('os');
 const { remote } = require('electron');
 
+
 function interfaceStringFormat(str){
 
 }
@@ -18,6 +19,37 @@ function interfaceList(){
   console.log(active);
   return active;
 }
+
+//**************** Button Group ********************************
+function ButtonGroupComponent(props){
+  return(
+      <div>
+        <button class="btn">Get interface list</button>
+        <button class="btn">connect to local interface</button>
+        <button class="btn" id="pineForm">{props.pineConnected} pinapple</button>
+        <button class="btn">pipe to Wireshark!</button>
+      </div>
+  );
+}
+const bthGroupEl = <ButtonGroupComponent pineConnected="Connect" />;
+ReactDOM.render(
+  bthGroupEl,
+  document.getElementById('b3')
+);
+
+
+const interfaceEl = (
+  <div>
+  <h1>Hello, Nathan! from React.js ;)</h1>
+  <p>Your active interfaces are as follows: {JSON.stringify(interfaceList(), null, 2)}</p>
+  </div>
+);
+
+ReactDOM.render(
+  interfaceEl,
+  document.getElementById('re')
+);
+
 
 // ****** Remote Pinapple connection form ******
 const pineBtn = document.getElementById("pineForm");
@@ -45,16 +77,4 @@ pineBtn.onclick = function(){
   });
 }
 
-const interfaceEl = (
-  <div>
-  <h1>Hello, Nathan! from React.js ;)</h1>
-  <p>Your active interfaces are as follows: {JSON.stringify(interfaceList(), null, 2)}</p>
-  </div>
-);
-
-ReactDOM.render(
-  interfaceEl,
-  document.getElementById('re')
-);
-
-interfaceList();
+//settings page (Accessable from cog)

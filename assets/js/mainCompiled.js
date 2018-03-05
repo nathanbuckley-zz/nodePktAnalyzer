@@ -21,6 +21,56 @@ function interfaceList() {
   return active;
 }
 
+//**************** Button Group ********************************
+function ButtonGroupComponent(props) {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'button',
+      { 'class': 'btn' },
+      'Get interface list'
+    ),
+    React.createElement(
+      'button',
+      { 'class': 'btn' },
+      'connect to local interface'
+    ),
+    React.createElement(
+      'button',
+      { 'class': 'btn', id: 'pineForm' },
+      props.pineConnected,
+      ' pinapple'
+    ),
+    React.createElement(
+      'button',
+      { 'class': 'btn' },
+      'pipe to Wireshark!'
+    )
+  );
+}
+var bthGroupEl = React.createElement(ButtonGroupComponent, { pineConnected: 'Connect' });
+ReactDOM.render(bthGroupEl, document.getElementById('b3'));
+
+var interfaceEl = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    'Hello, Nathan! from React.js ;)'
+  ),
+  React.createElement(
+    'p',
+    null,
+    'Your active interfaces are as follows: ',
+    JSON.stringify(interfaceList(), null, 2)
+  )
+);
+
+ReactDOM.render(interfaceEl, document.getElementById('re'));
+
+// ****** Remote Pinapple connection form ******
 var pineBtn = document.getElementById("pineForm");
 pineBtn.onclick = function () {
 
@@ -46,22 +96,4 @@ pineBtn.onclick = function () {
   });
 };
 
-var interfaceEl = React.createElement(
-  'div',
-  null,
-  React.createElement(
-    'h1',
-    null,
-    'Hello, Nathan! from React.js ;)'
-  ),
-  React.createElement(
-    'p',
-    null,
-    'Your active interfaces are as follows: ',
-    JSON.stringify(interfaceList(), null, 2)
-  )
-);
-
-ReactDOM.render(interfaceEl, document.getElementById('re'));
-
-interfaceList();
+//settings page (Accessable from cog)
